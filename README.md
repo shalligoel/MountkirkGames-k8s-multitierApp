@@ -39,7 +39,7 @@ select * from users;
 #### 4. Now set up Docker and Kubernetes on this VM.
 Reference: https://docs.docker.com/engine/install/ubuntu/<br>
 sudo apt-get update<br>
- sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release<br>
+sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release<br>
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg<br>
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \\
 $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null<br>
@@ -48,7 +48,14 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io<br>
 #### Verify that Docker Engine is installed correctly by running the hello-world image.
 sudo docker run hello-world
 ### Great!! Docker is installed
-
+#### To create the docker group and add your user:
+a. Create the docker group.<br>
+ sudo groupadd docker<br>
+b. Add your user to the docker group.<br>
+sudo usermod -aG docker $USER<br>
+c. Log out and log back in so that your group membership is re-evaluated.<br>
+d. Verify that you can run docker commands without sudo.<br>
+docker run hello-world
 ## PHASE -2: Setting up simple multi-layer application
 
 #### 1. Go to simple Web Application Folder<br>
