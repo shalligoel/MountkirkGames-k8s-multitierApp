@@ -46,5 +46,27 @@ select * from users;
 
 #### 1. Go to simple Web Application Folder<br>
 cd MountkirkGames/SimpleApp<br>
+#### Deploy the Python Flask-Based Frontend<br>
+The frontend is created using a Python based Web framework called Flask. There is a Docker File called Dockerfile that will be used to create Docker image called mkgames in which the application's source code is imported. The application's code is executed when a container created from that image runs.<br>
+#### Run the following command:
+docker build -t mkgames:v1 .
+#### Run the image in the container
+docker run --rm --name mkgames mkgaes:v1
 
+
+While creating the Deployment for the frontend, we are passing the name of the MongoDB Service, mongodb, as an environment variable, which is expected by our frontend.
+
+Notice that in the ports section we mentioned the containerPort 5000, and given it the web-port name. We will be using the referenced web-port name while creating the Service for the rsvp application. This is useful, as we can change the underlying containerPort without making any changes to our Service.
+
+kubectl create -f rsvp-web-deployment.yaml
+
+kubectl create -f rsvp-web-service.yaml
+
+Check Out the Available Deployments and Services
+kubectl get deployments
+
+kubectl get services
+
+Scale the Frontend
+kubectl scale --replicas=4 -f /tmp/rsvp-web.yaml
 
