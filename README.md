@@ -15,33 +15,29 @@ f. External IP Address: Yes <br>
 g. Protect VM from Deletion <br>
 Use other options of default or your choice. <br>
 
-
 #### 3. SSH into VM and install following software on VM: <br><br/>
 sudo apt update <br/>
 sudo apt install -y git <br/>
 sudo apt install mysql-server
 sudo apt install -y apache2 <br/>
-
 #### Set Database on mysql server
-sudo mysql -uroot -p <br>
+a. sudo mysql -uroot -p <br>
 #### Create a new user
-create user 'myuser'@'localhost' identified by 'mypwd';<br>
-GRANT ALL PRIVILEGES ON *.* to 'myuser'@'localhost;<br>
-exit<br>
-
-
+b. create user 'myuser'@'localhost' identified by 'mypwd';<br>
+c. GRANT ALL PRIVILEGES ON *.* to 'myuser'@'localhost;<br>
+d. exit<br>
+#### Download Source Code From Github
 sudo cd /var/www/html <br/>
-git clone https://github.com/shalligoel/MountkirkGames.git <br/>
-
+git clone https://github.com/shalligoel/MountkirkGames.git <br>
 Open http://EXTERNAL-IP-GCE/MountkirkGames in your browser <br>
-Enjoy!
-Go Back to terminal and create a database for the next phase.
-mysql -umyuser -pmypwd < database.sql
-mysql -umyuser -pmypwd
-show databases;
-use mountkirkGames;
-show tables;
-select * from users;
+Enjoy!<br>
+#### Go Back to terminal and create a database for the next phase.<br>
+mysql -umyuser -pmypwd < database.sql<br>
+mysql -umyuser -pmypwd<br>
+show databases;<br>
+use mountkirkGames;<br>
+show tables;<br>
+select * from users;<br>
 #### 4. Now set up Docker and Kubernetes on this VM.
 
 
