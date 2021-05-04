@@ -6,17 +6,17 @@ Credits & Source from: https://github.com/wwwtyro/Astray
 #### 1. Create a custom VPC with three subnets, one in usa region, asia region and Europe region. Create appropriate firewall rules.
 
 #### 2. Create a Google Compute Engine (GCE) with following configuration:
-a. Machine Type : n1-standard-1
-b. Operating System: Ubuntu-20.04
-c. Disk Type: Standard Disk
-d. Disk-size: 15 GB
-e. VPC: Custom
-f. External IP Address: Yes
-g. Protect VM from Deletion
-Use other options of default or your choice.
+a. Machine Type : n1-standard-1 <br>
+b. Operating System: Ubuntu-20.04 <br>
+c. Disk Type: Standard Disk <br>
+d. Disk-size: 15 GB <br>
+e. VPC: Custom <br>
+f. External IP Address: Yes <br>
+g. Protect VM from Deletion <br>
+Use other options of default or your choice. <br>
 
 
-#### 3. SSH into VM and install following software on VM: <br/><br/>
+#### 3. SSH into VM and install following software on VM: <br><br/>
 sudo apt update <br/>
 sudo apt install -y git <br/>
 sudo apt install -y apache2 <br/>
