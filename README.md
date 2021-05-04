@@ -37,9 +37,20 @@ use mountkirkGames;<br>
 show tables;<br>
 select * from users;
 #### 4. Now set up Docker and Kubernetes on this VM.
-
-
-
+Reference: https://docs.docker.com/engine/install/ubuntu/<br>
+sudo apt-get update<br>
+ sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release<br>
+ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg<br>
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null<br>
+  #### Verify that Docker Engine is installed correctly by running the hello-world image.
+  sudo docker run hello-world
 
 
 ## PHASE -2: Setting up simple multi-layer application
