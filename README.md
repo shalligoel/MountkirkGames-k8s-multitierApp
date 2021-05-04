@@ -39,35 +39,30 @@ select * from users;
 #### 4. Now set up Docker and Kubernetes on this VM.
 Reference: https://docs.docker.com/engine/install/ubuntu/<br>
 sudo apt-get update<br>
- sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release<br>
- curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg<br>
-echo \
-  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null<br>
-  #### Verify that Docker Engine is installed correctly by running the hello-world image.
-  sudo docker run hello-world
-
+ sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release<br>
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg<br>
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \\
+$(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null<br>
+sudo apt-get update<br>
+sudo apt-get install docker-ce docker-ce-cli containerd.io<br>
+#### Verify that Docker Engine is installed correctly by running the hello-world image.
+sudo docker run hello-world
+### Great!! Docker is installed
 
 ## PHASE -2: Setting up simple multi-layer application
 
 #### 1. Go to simple Web Application Folder<br>
 cd MountkirkGames/SimpleApp<br>
 #### Deploy the Python Flask-Based Frontend<br>
-The frontend is created using a Python based Web framework called Flask. There is a Docker File called Dockerfile that will be used to create Docker image called mkgames in which the application's source code is imported. The application's code is executed when a container created from that image runs.<br>
+# The frontend is created using a Python based Web framework called Flask. There is a Docker File called Dockerfile that will be used to create Docker image called mkgames in # which the application's source code is imported. The application's code is executed when a container created from that image runs.<br>
 #### Run the following command:
 docker build -t mkgames:v1 .
 #### Run the image in the container
 docker run --rm --name mkgames mkgaes:v1
 
 
-While creating the Deployment for the frontend, we are passing the name of the MongoDB Service, mongodb, as an environment variable, which is expected by our frontend.
-
-Notice that in the ports section we mentioned the containerPort 5000, and given it the web-port name. We will be using the referenced web-port name while creating the Service for the rsvp application. This is useful, as we can change the underlying containerPort without making any changes to our Service.
+# While creating the Deployment for the frontend, we are passing the name of the MongoDB Service, mongodb, as an environment variable, which is expected by our frontend.
+# Notice that in the ports section we mentioned the containerPort 5000, and given it the web-port name. We will be using the referenced web-port name while creating the # # Service for the rsvp application. This is useful, as we can change the underlying containerPort without making any changes to our Service.
 
 kubectl create -f rsvp-web-deployment.yaml
 
