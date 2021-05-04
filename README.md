@@ -1,8 +1,8 @@
-# Mountkirk Games Implementation on Google Kubernetes Engine (GKE) 
+# MountkirkGames Implementation on Google Kubernetes Engine(GKE) 
 A WebGL maze game built with Three.js and Box2dWeb. 
 Credits & Source from: https://github.com/wwwtyro/Astray
 
-## PHASE - 1: Set up Single Node Kubernetes Cluster on GCE VM for first setting up your application.
+## PHASE - 1:<br> Set up Single Node Kubernetes Cluster on GCE VM for first setting up your application.
 #### 1. Create a custom VPC with three subnets, one in usa region, asia region and Europe region. Create appropriate firewall rules.
 
 #### 2. Create a Google Compute Engine (GCE) with following configuration:
