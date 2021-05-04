@@ -1,5 +1,4 @@
-# Mountkirk Games Implementation on Google Compute Engine or Managed Instance Group
-
+# Mountkirk Games Implementation on Google Kubernetes Engine (GKE) 
 A WebGL maze game built with Three.js and Box2dWeb. 
 Credits & Source from: https://github.com/wwwtyro/Astray
 
