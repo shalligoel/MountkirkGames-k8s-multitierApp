@@ -14,7 +14,6 @@ e. VPC: Custom <br>
 f. External IP Address: Yes <br>
 g. Protect VM from Deletion <br>
 Use other options of default or your choice. <br>
-
 #### 3. SSH into VM and install following software on VM: <br><br/>
 sudo apt update <br/>
 sudo apt install -y git <br/>
