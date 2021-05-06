@@ -1,0 +1,14 @@
+FROM ubuntu:18.04
+MAINTAINER sg
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update
+RUN apt-get install apache2 -y
+RUN apt-get install curl -y
+RUN apt install -y python3-pip python3-dev
+COPY ./* ./var/www/html/
+expose 80
+ENV SERVER_NAME=localhost
+
+
+
+###sudo docker run --rm --name mkgames -p 8000:80 -h myapp.mydomain.com  mkgames
